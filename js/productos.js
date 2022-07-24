@@ -1,13 +1,13 @@
-class Producto {
-    constructor(nombre, precio, iva) {
-        this.nombre = nombre
-        this.precio = precio
-        this.iva = iva
-    }
-        precioFinal(){
-            return parseFloat((this.precio * iva).toFixed(2))
-        }
-}
+// class Producto {
+//     constructor(producto, iva, precio) {
+//         this.producto = producto
+//         this.iva = iva
+//         this.precio = precio
+//     }
+//         precioFinal(){
+//             return parseFloat((this.precio * iva).toFixed(2))
+//         }
+// }
 
 function creoID() {
     return parseInt(Math.random() * 10000)
@@ -22,14 +22,14 @@ function agregarProducto() {
 
 
 
-function generadorAutomatico() {
-    productos.push(new Producto("Curso auto-maquillaje", 8000, iva))
-     productos.push(new Producto("Curso de pieles", 6000, iva))
-     productos.push(new Producto("Curso de ojos", 4000, iva))
-     productos.push(new Producto("Curso de delineados", 5000, iva))
-     productos.push(new Producto("Curso pieles glow", 4000, iva))
-     productos.push(new Producto("Curso maquillaje profesional", 10000, iva)) 
- }
+// function generadorAutomatico() {
+//     productos.push(new Producto("Curso auto-maquillaje", 8000, iva))
+//     productos.push(new Producto("Curso de pieles", 6000, iva))
+//     productos.push(new Producto("Curso de ojos", 4000, iva))
+//     productos.push(new Producto("Curso de delineados", 5000, iva))
+//     productos.push(new Producto("Curso pieles glow", 4000, iva))
+//     productos.push(new Producto("Curso maquillaje profesional", 10000, iva)) 
+// }
 
 function buscarProducto() {        
             let resultado = productos.find( p => p.nombre == prod)               
