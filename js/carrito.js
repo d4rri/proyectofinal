@@ -6,98 +6,57 @@ let btnAgregar5 = document.querySelector("#carrito5")
 let btnAgregar6 = document.querySelector("#carrito6")
 
 const recuperarJSON = (URL) => {  
-    let filas = "";
-    let prod="";
-    let total = "";
-    let preciof = "";
-    let texto =`<p class="btn form3 text-light" type="button">Precio final de mi compra:`
     fetch(URL)
         .then(response => response.json())
         .then(data => {
             contenidoJSON = data
-            contenidoJSON.forEach(prod => {; 
-                // total=new Producto(prod.producto,prod.iva,prod.precio);            
-//                 // filas += `<ul class="list-group mb-3">
-//                 //         <li class="list-group-item d-flex justify-content-between lh-sm">
-//                 //         <div>
-//                 //             <h6 class="my-0">${prod.producto || "el producto no existe"}</h6>
-//                 //             <small class="">${prod.iva || "el iva no existe"}</small>
-//                 //         </div>
-//                 //             <span class="">${prod.precio || "el precio no existe"}</span>
-//                 //         </li>
-//                 //         <li class="list-group-item d-flex justify-content-between">
-//                 //         <p>Total del producto (Pesos Argentinos):</p>
-//                 //     <strong>${total.precioFinal() || "el precio final no existe"}</strong>
-//                 //     </li>
-//                 //     </ul>`
-//                 // preciof = (parseInt(preciof + total.precioFinal()));
-//                 // document.getElementById('verCompra').innerHTML = filas;
-//                 // document.getElementById('verPrecioFinal').innerHTML = texto + preciof;  
-
-                    })
-            })
-        }
-
+        })
+    }
+   
 recuperarJSON(URL)
-
-
-function precioFinal() {
-    return parseFloat((precio * iva).toFixed(2))
-}
 
 btnAgregar1.addEventListener("click", (URL) => {
         resultado = contenidoJSON.find((el) => el.nombre==="Curso auto-maquillaje");
         llenarCarrito.push(resultado)
-        localStorage.setItem("carrito", JSON.stringify(llenarCarrito))                                 
+        localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
+        alertar("Se agrego el producto al carrito.")                                 
 })
 
 btnAgregar2.addEventListener("click", (URL) => {
         resultado = contenidoJSON.find((el) => el.nombre==="Curso de pieles");
         llenarCarrito.push(resultado)
-        localStorage.setItem("carrito", JSON.stringify(llenarCarrito))                                 
+        localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
+        alertar("Se agrego el producto al carrito.")                                 
 })
-        
 
+btnAgregar3.addEventListener("click", (URL) => {
+    resultado = contenidoJSON.find((el) => el.nombre==="Curso de ojos");
+    llenarCarrito.push(resultado)
+    localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
+    alertar("Se agrego el producto al carrito.")                                 
+})
 
+btnAgregar4.addEventListener("click", (URL) => {
+    resultado = contenidoJSON.find((el) => el.nombre==="Curso de delineados");
+    llenarCarrito.push(resultado)
+    localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
+    alertar("Se agrego el producto al carrito.")                                 
+})
 
+btnAgregar5.addEventListener("click", (URL) => {
+    resultado = contenidoJSON.find((el) => el.nombre==="Curso pieles glow");
+    llenarCarrito.push(resultado)
+    localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
+    alertar("Se agrego el producto al carrito.")                                 
+})
 
-// btnAgregar1.addEventListener("click", (URL) => {
-//      const resultado = contenidoJSON.find((prod) => prod.producto==="curso auto-maquillaje")
-//      console.log(resultado)     
-//      alertar("Se agrego el producto al carrito.")
-//      })
-
-
-// btnAgregar2.addEventListener("click", () => {
-//     llenarCarrito.push(new Producto("Curso de pieles", 6000, iva,))
-//     localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
-//     alertar("Se agrego el producto al carrito.")
-//     })
-        
-// btnAgregar3.addEventListener("click", () => {
-//     llenarCarrito.push(new Producto("Curso de ojos", 4000, iva,))
-//     localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
-//     alertar("Se agrego el producto al carrito.")
-//     })
-    
-// btnAgregar4.addEventListener("click", () => {
-//     llenarCarrito.push(new Producto("Curso de delineados", 5000, iva))
-//     localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
-//     alertar("Se agrego el producto al carrito.")
-//     })
-    
-// btnAgregar5.addEventListener("click", () => {
-//     llenarCarrito.push(new Producto("Curso pieles glow", 4000, iva))
-//     localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
-//     alertar("Se agrego el producto al carrito.")
-//     })
-    
-// btnAgregar6.addEventListener("click", () => {
-//     llenarCarrito.push(new Producto("Curso maquillaje profesional", 10000, iva))
-//     localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
-//     alertar("Se agrego el producto al carrito.")
-//     })
-
+btnAgregar6.addEventListener("click", (URL) => {
+    resultado = contenidoJSON.find((el) => el.nombre==="Curso maquillaje profesional");
+    llenarCarrito.push(resultado)
+    localStorage.setItem("carrito", JSON.stringify(llenarCarrito))
+    alertar("Se agrego el producto al carrito.")                                 
+})
+       
 btnVer.addEventListener("click", () => {
     location.href = "../pages/totalproductos.html"
 })

@@ -30,7 +30,7 @@ body section {
 body section .lista {
   list-style-type: none;
   border-color: hsl(26deg, 77%, 59%);
-  background-color: #bbb8b6;
+  background-color: #fffefe;
   font-family: "Oswald", sans-serif;
   text-align: center;
   display: flex;
@@ -111,7 +111,7 @@ a:visited {
 }
 
 .form2 {
-    background-color: rgb(175, 168, 162);
+    background-color: rgb(0, 0, 0);
     border: inset;
     font-family: "Oswald", sans-serif;
     color:hsl(26deg, 77%, 59%);
@@ -126,7 +126,7 @@ a:visited {
 }
 
 .form3 {
-  background-color: rgb(175, 168, 162);
+  background-color: rgb(5, 5, 5);
   border: inset;
   font-family: "Oswald", sans-serif;
   color:hsl(26deg, 77%, 59%);
@@ -159,7 +159,7 @@ footer {
   animation: myAnim 1s ease 0s 1 normal forwards;
   margin-bottom: 0%;
   font-size: 15px;
-  background-color: rgb(175, 168, 162);
+  background-color: rgb(0, 0, 0);
   border-style: inset;
   font-family: "Oswald", sans-serif;
   -webkit-box-shadow: 11px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -305,5 +305,12 @@ footer {
   }
 }
 
+.agregarCarrito {
+  display: flex;
+  justify-content:center;
+  text-align: center;
+  align-items: center;
+
+}
 /*# sourceMappingURL=destino.css.map */
 

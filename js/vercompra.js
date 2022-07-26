@@ -1,79 +1,73 @@
-// btnVolver.addEventListener("click", () => {
-//     location.href = "../pages/cursos.html"
-// })
-
-// btnCompra.addEventListener("click", () => {
-//     alertar("Su compra ha sido realizada.")
-// })
-
-function alertar(mensaje) {
-    Swal.fire({
-        title: 'Gracias por su compra!',
-        text: mensaje,
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-    })
-}
-
- recuperarObjeto = () => {
-    let preciof = ""
+recuperarObjeto = () => {
+    let preciof = 0
     let filas = ""
     let prod=""
-    let texto =`<p class="btn form3 text-light" type="button">Precio final de mi compra:`
-    debugger
+    let precioIVA = 0
+    let texto =`<p class="btn form3 text-light" type="button">Precio final de mi compra: $`
     llenarCarrito =JSON.parse(localStorage.getItem("carrito")) || ['El carrito esta vacio.'];
         for (prod of llenarCarrito) {
-            filas += `<ul class="list-group mb-3">
+            precioIVA = (parseInt((prod.precio * iva).toFixed(2)));
+            filas += `<ul class="list-group mb-3 p-3">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                         <div>
-                            <h6 class="my-0">${prod.nombre || "el producto no existe"}</h6> 
-                            <small class="">${prod.iva || "el iva no existe"}</small>  
+                            <h6 class="my-0">${prod.nombre || "Ingrese un producto"}</h6> 
+                            <small class="">Iva:${prod.iva || "Ingrese un producto"}</small>  
                         </div>
-                            <span class="">${prod.precio || "el precio no existe"}</span> 
+                            <span class="">Precio del producto: $${prod.precio || "Ingrese un producto"}</span> 
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
-                            <p>Total (Pesos Argentinos):</p>
-                        </li>
-                    </ul>`
-                    preciof = (parseFloat((prod.precio * iva).toFixed(2)));
+                            <p>Total (Con IVA): $${precioIVA || "Ingrese un producto"}</p>
+                        </li>          
+                        </ul>`                                        
+                    preciof += (parseInt((prod.precio * iva).toFixed(2)));
                     document.getElementById('verCompra').innerHTML = filas;
-                    document.getElementById('verPrecioFinal').innerHTML = texto + preciof; 
+                    document.getElementById('verPrecioFinal').innerHTML = texto + preciof ; 
             }
         }
+
 recuperarObjeto()
-           
 
-// const recuperarJSON = (URL) => {  
-//     let filas = "";
-//     let prod="";
-//     let total = "";
-//     let preciof = "";
-//     let texto =`<p class="btn form3 text-light" type="button">Precio final de mi compra:`
-//     fetch(URL)
-//         .then(response => response.json())
-//         .then(data => {
-//             contenidoJSON = data
-//             contenidoJSON.forEach(prod => {; 
-//                 total=new Producto(prod.producto,prod.iva,prod.precio);            
-//                 filas += `<ul class="list-group mb-3">
-//                         <li class="list-group-item d-flex justify-content-between lh-sm">
-//                         <div>
-//                             <h6 class="my-0">${prod.producto || "el producto no existe"}</h6>
-//                             <small class="">${prod.iva || "el iva no existe"}</small>
-//                         </div>
-//                             <span class="">${prod.precio || "el precio no existe"}</span>
-//                         </li>
-//                         <li class="list-group-item d-flex justify-content-between">
-//                         <p>Total del producto (Pesos Argentinos):</p>
-//                     <strong>${total.precioFinal() || "el precio final no existe"}</strong>
-//                     </li>
-//                     </ul>`
-//                 preciof = (parseInt(preciof + total.precioFinal()));
-//                 document.getElementById('verCompra').innerHTML = filas;
-//                 document.getElementById('verPrecioFinal').innerHTML = texto + preciof;  
+btnVolver.addEventListener("click", () => {
+    location.href = "../pages/cursos.html"
+})
 
-//                     })
-//             })
-//         }
-        
-// recuperarJSON(URL)
+btnCompra.addEventListener("click", () => {
+    finalizarCompra("Ingrese su e-mail para confirmar su compra")
+})
+
+function vaciarCarrito() {
+
+    llenarCarrito = [];
+
+    filas = "";
+
+    localStorage.clear();
+
+    location.href = "../pages/cursos.html";    
+}
+
+btnVaciar.addEventListener('click', vaciarCarrito);
+
+function finalizarCompra (input) {
+Swal.fire({
+    title: 'Insertar e-mail para confirmar su compra',
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    cancelButtonText: "Cancelar",
+    confirmButtonText: 'Confirmar',
+    showLoaderOnConfirm: true,
+    preConfirm: (mensaje) => {
+        Swal.fire({
+            title: 'Muchas gracias! Usted recibirá una confirmación de su compra al siguiente e-mail',
+            text: mensaje,
+            icon: 'success',
+            confirmButtonText: 'Aceptar'            
+            })
+        }                     
+    }) 
+} 
+
+

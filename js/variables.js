@@ -5,7 +5,7 @@ const productos = [];
 
 const carrito = [];
 
-const llenarCarrito = [];
+let llenarCarrito = [];
 
 const lista = document.getElementById("lista") 
 
@@ -20,6 +20,8 @@ const btnVer = document.querySelector("#btnVer")
 const btnVolver = document.querySelector("#volverC")
 
 const btnCompra = document.querySelector("#compra")
+
+const btnVaciar = document.querySelector("#vaciarCarrito")
 
 const URL = `../js/productos.json`
 
