@@ -61,13 +61,15 @@ Swal.fire({
     showLoaderOnConfirm: true,
     preConfirm: (mensaje) => {
         Swal.fire({
-            title: 'Muchas gracias! Usted recibirá una confirmación de su compra al siguiente e-mail',
+            title: 'Muchas gracias! Usted recibirá una confirmación de su compra al siguiente e-mail:',
             text: mensaje,
             icon: 'success',
             confirmButtonText: 'Aceptar'            
-            })
-        }                     
-    }) 
-} 
-
-
+        })
+        .then(function() {
+            window.location = "../pages/cursos.html";
+            vaciarCarrito();
+        })
+        },
+    }
+)}
